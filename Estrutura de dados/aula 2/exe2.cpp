@@ -23,7 +23,7 @@ int main ()
 	limpaAvioes(avioes,avioes_tamanho);
 	while(1)
 	{
-		system("clear");
+		system("clear");//Alternativa para o "cls" do windows
 		mostraMenu();
 		cin >> opcao;
 		if ( opcao == 0 ){
@@ -32,7 +32,7 @@ int main ()
 		else if ( opcao == 2 ){
 				system("clear");
 				mostraAvioes(avioes,0,avioes_tamanho);
-				system("read -n1");
+				system("read -n1");//Alternativa para o "pause" do windows 
 		}
 		else if ( opcao	== 1 ){
 				system("clear");
@@ -158,8 +158,15 @@ void cadastraAvioes(Aeronave vetor[],int tamanho_vetor){
 }
 void reservaAssento(Aeronave vetor[],int tamanho_vetor){
 	int nr_aeronave, indice_aeronave = -1, i, j, in_vago_nm_passageiros;
-	cout << "Informe o número da aeronave: ";
-	cin >> nr_aeronave;
+	while(1){
+		cout << "Informe o número da aeronave: ";
+		cin >> nr_aeronave;
+		if ( nr_aeronave > 0 ){
+			break;
+		}else{
+			cout << "Valor deve ser maior que zero." << endl;
+		}
+	}
 	for ( i = 0; i < tamanho_vetor; i++){
 		if ( vetor[i].numero_aeronave == nr_aeronave ){
 			indice_aeronave = i;
@@ -175,6 +182,7 @@ void reservaAssento(Aeronave vetor[],int tamanho_vetor){
 			}
 			while(1){
 				cout << "Informe o nome do passageiro:";
+				fflush(stdin);
 				cin >> vetor[indice_aeronave].nm_passageiros[in_vago_nm_passageiros];
 				if ( vetor[indice_aeronave].nm_passageiros[in_vago_nm_passageiros] != "0" ){
 					break;
