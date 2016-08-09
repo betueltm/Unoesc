@@ -1,0 +1,79 @@
+#include	<iostream>
+using namespace std;
+
+void mensagem(){
+	cout << "Hello world " << endl;
+}
+int SomaValores(int a,int b){
+	return a+b;
+}
+
+float ConverteMoeda (int flag,float valor,float cotacao)
+{
+	if ( flag == 1 )
+	{
+		return(valor*cotacao);
+	}
+	else
+	{
+		return(valor/cotacao);
+	}
+}
+
+int retornaSucessor(int valor)
+{
+	return (valor + 1);
+}
+
+int retornaAntecessor(int valor)
+{
+	return (valor - 1);
+}
+
+void retornaDivisores(int valor)
+{
+	int i;
+	cout << "Os divisores de " << valor << " são: ";
+	for( i = 1; i <= valor; i++)
+	{
+		if ( valor%i == 0)
+		{
+			cout << i << " ";
+		}
+	}
+	cout << endl;
+}
+
+void calculaGorjeta(float consumido,float taxa)
+{
+	cout << "Valor consumido: R$ " << consumido << endl;
+	cout << "Taxa da gorjeta: " << taxa << "%" << endl;
+	cout << "Valor total: R$ " << consumido + (consumido*(taxa/100)) << endl;
+}
+
+void somaEstranha(int valor)
+{
+	int i;
+	cout << "S = 1";
+	for (i = 1; i <= valor; i++)
+	{
+		cout << " + ";
+		cout << "1" << "/" << i;
+		if ( i == valor )
+		{
+			cout << endl;
+		}
+	}
+}
+double fatorial(int valor)
+{
+	double fatorial;
+	int i;
+	fatorial = valor;
+	for ( i = (valor - 1); i > 0; i--)
+	{
+		fatorial = fatorial*i;
+	}
+	return (fatorial);
+}
+
